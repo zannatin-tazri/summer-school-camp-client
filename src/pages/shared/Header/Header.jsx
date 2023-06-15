@@ -4,7 +4,7 @@ const Header = () => {
   
     return (
         <div className="mx-8 my-4 px-10 text-indigo-950"> 
-            <div className="navbar bg-indigo-100 rounded">
+            <div className="navbar bg-indigo-300 rounded">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -16,7 +16,7 @@ const Header = () => {
         <Link to="/instructors">Instructor</Link>
           
         </li>
-        <li><a>Classes</a></li>
+        <li><Link to='/classes'>Classes</Link></li>
       </ul>
     </div>
     <a className="btn btn-ghost normal-case text-xl">ArtVenture Camp</a>
@@ -27,7 +27,7 @@ const Header = () => {
       <li >
         <Link to="/instructors">Instructor</Link>
       </li>
-      <li><a>Classes</a></li>
+      <li><Link to='/classes'>Classes</Link></li>
       <li><a>Dashboard</a></li>
     </ul>
   </div>
