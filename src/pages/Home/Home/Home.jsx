@@ -1,9 +1,10 @@
+import PopularClassesSection from "./popular-classes-section/PopularClassesSection";
 
 
 const Home = () => {
     return (
         <div>
-            <h2>This is home</h2>
+            <PopularClassesSection></PopularClassesSection>
         </div>
     );
 };
