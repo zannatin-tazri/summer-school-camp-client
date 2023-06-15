@@ -1,6 +1,6 @@
 const Header = () => {
     return (
-        <div className="mx-8 my-4 px-10"> 
+        <div className="mx-8 my-4 px-10 text-indigo-950"> 
             <div className="navbar bg-indigo-100 rounded">
   <div className="navbar-start">
     <div className="dropdown">
