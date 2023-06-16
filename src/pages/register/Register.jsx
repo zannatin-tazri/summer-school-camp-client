@@ -39,7 +39,7 @@ const Register = () => {
                 <input className="btn btn-primary bg-indigo-300 text-gray-600" type="submit" value="Login" />
               </div>
               </form>
-              <small>Already have an account? <Link className="text-indigo-900" to='/login'>Login</Link> </small>
+              <small>Already have an account? <Link className="text-indigo-900" to='/login'>Register</Link> </small>
             </div>
           </div>
         </div>
