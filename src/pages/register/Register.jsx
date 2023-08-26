@@ -1,10 +1,12 @@
 // import { useState } from "react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider";
 
 
 const Register = () => {
   const [error, setError]=useState('');
+  const {createUser}=useContext(AuthContext);
   // const [email,setEmail]=useState('');
     const handleRegister=event=>{
 
@@ -14,7 +16,8 @@ const Register = () => {
         const password=form.password.value;
         const confirm=form.confirm.value;
         console.log(email,password,confirm);
-
+         
+        setError('');
         if(password !==confirm){
           setError("Your Password Didn't match")
           return
@@ -27,6 +30,15 @@ const Register = () => {
         //   setError("Password should contail at least 1 uppercase")
         //   return
         // }
+        createUser(email,password)
+        .then(result=>{
+          const loggedUser=result.user;
+          console.log(loggedUser);
+        })
+        .catch(error=>{
+          console.log(error);
+          setError(error.message);
+        })
       }
     
     return (

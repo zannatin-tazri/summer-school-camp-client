@@ -4,6 +4,7 @@ import { AuthContext } from "../../../provider/AuthProvider";
 
 const Header = () => {
   const {user}=useContext(AuthContext)
+  console.log(user);
   
     return (
         <div className="mx-8 my-4 px-10 text-indigo-950"> 
