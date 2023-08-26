@@ -1,6 +1,9 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../../provider/AuthProvider";
 
 const Header = () => {
+  const {user}=useContext(AuthContext)
   
     return (
         <div className="mx-8 my-4 px-10 text-indigo-950"> 
@@ -34,6 +37,8 @@ const Header = () => {
   <div className="navbar-end gap-5">
     <Link to='/login' className="btn">Login</Link>
     <Link to='/register' className="btn">Register</Link>
+    {user && <span>
+      Welcome {user.email}</span>}
   </div>
 </div>
             

@@ -1,13 +1,32 @@
+// import { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 
 
 const Register = () => {
+  const [error, setError]=useState('');
+  // const [email,setEmail]=useState('');
     const handleRegister=event=>{
+
         event.preventDefault();
         const form=event.target;
         const email=form.email.value;
         const password=form.password.value;
-        console.log(email,password);
+        const confirm=form.confirm.value;
+        console.log(email,password,confirm);
+
+        if(password !==confirm){
+          setError("Your Password Didn't match")
+          return
+        }
+        else if(password.length<6){
+          setError("Your password length should more than 6 characters")
+          return
+        }
+        // else if(!password.match([A-Z])){
+        //   setError("Password should contail at least 1 uppercase")
+        //   return
+        // }
       }
     
     return (
@@ -30,14 +49,20 @@ const Register = () => {
                   <span className="label-text">Password</span>
                 </label>
                 <input type="password" placeholder="password" name="password" className="input input-bordered" />
+                
+              </div>
+              <div className="form-control">
                 <label className="label">
-                  <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
+                  <span className="label-text">Confirm Password</span>
                 </label>
+                <input type="password" placeholder="re-type password" name="confirm" className="input input-bordered" />
+                
               </div>
               <div className="form-control mt-6">
                 
                 <input className="btn btn-primary bg-indigo-300 text-gray-600" type="submit" value="Login" />
               </div>
+              <p>{error}</p>
               </form>
               <small>Already have an account? <Link className="text-indigo-900" to='/login'>Login</Link> </small>
             </div>
