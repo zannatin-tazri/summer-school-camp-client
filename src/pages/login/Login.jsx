@@ -1,11 +1,29 @@
 import { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import { GoogleAuthProvider, getAuth, signInWithPopup } from "firebase/auth";
 
 
 const Login = () => {
+  const auth= getAuth();
+  const provider=new GoogleAuthProvider();
+  const handleGoogleSignIn=()=>{
+    signInWithPopup(auth,provider)
+    .then(result=>{
+      const user=result.user;
+      console.log(user)
+    })
+    .catch(error=>{
+      console.log('error',error.message);
+    })
+  }
+
   const {signIn}=useContext(AuthContext);
   const navigate=useNavigate();
+  const location = useLocation();
+  console.log(location);
+
+  const from=location.state?.from?.pathname || '/'
 
     const handleLogin=event=>{
         event.preventDefault();
@@ -19,7 +37,7 @@ const Login = () => {
           const loggeduser=result.user;
           console.log(loggeduser);
           form.reset();
-          navigate('/');
+          navigate(from, {replace:true});
         })
         .catch(error=>{
           console.log(error);
@@ -57,7 +75,7 @@ const Login = () => {
               <small>New to ArtVenture Camp? <Link className="text-indigo-900" to='/register'>Register</Link> </small>
 
               <div>
-                <button className=" m-4 btn btn-primary bg-indigo-300 text-gray-600">Login with Google</button>
+                <button onClick={handleGoogleSignIn} className=" m-4 btn btn-primary bg-indigo-300 text-gray-600">Login with Google</button>
               </div>
             </div>
           </div>

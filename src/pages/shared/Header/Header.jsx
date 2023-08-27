@@ -42,10 +42,19 @@ const Header = () => {
     </ul>
   </div>
   <div className="navbar-end gap-5">
-    <Link to='/login' className="btn">Login</Link>
-    <Link to='/register' className="btn">Register</Link>
-    {user && <span>
-      {user.photoURL} <button className="btn" onClick={handleLogout}>Log out</button></span>}
+   
+    {user ? <span className="d-flex flex items-center">
+      <div className=" avatar">
+    <div className="w-12 rounded-full mr-4">
+      <img className="" src={user.photoURL} />
+    </div>
+  </div> 
+  <button className="btn" onClick={handleLogout}>Log out</button></span> :
+  <span>
+     <Link to='/login' className="btn">Login</Link>
+    <Link to='/register' className="btn ms-4">Register</Link>
+  </span>
+  }
   </div>
 </div>
             
