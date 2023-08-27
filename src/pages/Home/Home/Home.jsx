@@ -1,5 +1,7 @@
+
 import PopularInstructor from "./Popular-instructor/PopularInstructor";
 import Slider from "./Slider/Slider";
+import BestArt from "./best art/BestArt";
 import PopularClassesSection from "./popular-classes-section/PopularClassesSection";
 
 
@@ -9,6 +11,7 @@ const Home = () => {
             <Slider></Slider>
             <PopularClassesSection></PopularClassesSection>
             <PopularInstructor></PopularInstructor>
+            <BestArt></BestArt>
         </div>
     );
 };
