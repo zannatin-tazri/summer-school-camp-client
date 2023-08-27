@@ -1,10 +1,16 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider";
+import { onAuthStateChanged } from "firebase/auth";
 
 const Header = () => {
-  const {user}=useContext(AuthContext)
+  const {user, logOut}=useContext(AuthContext)
   console.log(user);
+  const handleLogout=()=>{
+    logOut()
+    .then(result=>{})
+    .catch(error=>console.log(error));
+  }
   
     return (
         <div className="mx-8 my-4 px-10 text-indigo-950"> 
@@ -39,7 +45,7 @@ const Header = () => {
     <Link to='/login' className="btn">Login</Link>
     <Link to='/register' className="btn">Register</Link>
     {user && <span>
-      Welcome {user.email}</span>}
+      {user.photoURL} <button className="btn" onClick={handleLogout}>Log out</button></span>}
   </div>
 </div>
             
