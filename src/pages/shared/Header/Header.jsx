@@ -1,7 +1,7 @@
-import { useContext, useEffect } from "react";
+import { useContext} from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../provider/AuthProvider";
-import { onAuthStateChanged } from "firebase/auth";
+
 
 const Header = () => {
   const {user, logOut}=useContext(AuthContext)
@@ -38,7 +38,7 @@ const Header = () => {
         <Link to="/instructors">Instructor</Link>
       </li>
       <li><Link to='/classes'>Classes</Link></li>
-      <li><a>Dashboard</a></li>
+      <li><Link to="/dashboard">Dashboard</Link></li>
     </ul>
   </div>
   <div className="navbar-end gap-5">
