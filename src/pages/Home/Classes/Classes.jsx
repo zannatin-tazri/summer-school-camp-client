@@ -12,7 +12,7 @@ const Classes = () => {
     }, [])
     return (
         <div >
-            <h1 className="text-center text-4xl font-bold my-3 text-indigo-950">All Classes</h1>
+            <h1 className="text-center text-4xl font-bold my-3 text-indigo-700">All Classes</h1>
             <div className='grid grid-cols-3 mx-10 bg-indigo-50 text-white'>
 
                 {
